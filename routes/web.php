@@ -16,3 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('libros', 'LibroController@index')->name('libros.index');
+
+Route::get('libros/create', 'LibroController@create')->name('libros.create');
+
+Route::post('libros', 'LibroController@store')->name('libros.store');
+
+Route::get('libros/{id}', 'LibroController@show')->name('libros.show');
+
+Route::get('libros/{id}/edit', 'LibroController@edit')->name('libros.edit');
+
+Route::match(['put','patch'], 'libros/{id}', 'LibroController@update')->name('libros.update');
+
+Route::delete('libros/{id}', 'LibroController@destroy')->name('libros.destroy');
